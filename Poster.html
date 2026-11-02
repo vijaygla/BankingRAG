@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capgemini Apex Commercial Bank - Enterprise AI Banking & RAG Platform Poster</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #060B18;
+      --bg-secondary: #0D162C;
+      --bg-card: rgba(16, 28, 56, 0.7);
+      --bg-card-hover: rgba(22, 38, 77, 0.85);
+      --border-color: rgba(0, 112, 173, 0.35);
+      --border-glow: rgba(0, 229, 255, 0.5);
+      
+      --cap-blue: #0070AD;
+      --cap-cyan: #00E5FF;
+      --cap-dark: #001E3C;
+      --accent-gold: #FFB300;
+      --accent-green: #00E676;
+      --accent-purple: #9D4EDD;
+      --accent-red: #FF5252;
+      
+      --text-main: #FFFFFF;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+      
+      --shadow-glow: 0 0 25px rgba(0, 229, 255, 0.15);
+      --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --radius-sm: 8px;
+    }
+
+    [data-theme="light"] {
+      --bg-primary: #F4F7FC;
+      --bg-secondary: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --bg-card-hover: #F8FAFC;
+      --border-color: rgba(0, 112, 173, 0.25);
+      --border-glow: rgba(0, 112, 173, 0.4);
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --text-dim: #64748B;
+      --shadow-glow: 0 4px 20px rgba(0, 112, 173, 0.1);
+      --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.5;
+      padding: 24px;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 15% 10%, rgba(0, 112, 173, 0.22) 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(0, 229, 255, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(13, 22, 44, 0.6) 0%, transparent 80%);
+      background-attachment: fixed;
+    }
+
+    /* Interactive Action Bar (Fixed Top) */
+    .action-bar {
+      position: sticky;
+      top: 12px;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(13, 22, 44, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 10px 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .action-bar .brand-badge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-badge .dot {
+      width: 10px;
+      height: 10px;
+      background: var(--cap-cyan);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--cap-cyan);
+      animation: pulseDot 2s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.2); }
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0, 112, 173, 0.25);
+      border: 1px solid var(--cap-cyan);
+      color: #FFFFFF;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: var(--cap-cyan);
+      color: #060B18;
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--cap-blue), #009688);
+      border: none;
+    }
+
+    /* Poster Container */
+    .poster-container {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* Header Banner */
+    .header-banner {
+      background: linear-gradient(135deg, rgba(13, 22, 44, 0.95) 0%, rgba(0, 30, 60, 0.85) 100%);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-lg);
+      padding: 32px 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-glow), var(--shadow-card);
+    }
+
+    .header-banner::before {
+      content: "";
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 250px;
+      height: 250px;
+      background: radial-gradient(circle, rgba(0, 229, 255, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .corp-title-area {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .cap-logo-badge {
+      background: #FFFFFF;
+      color: #0070AD;
+      font-weight: 800;
+      font-size: 1.1rem;
+      padding: 6px 14px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      letter-spacing: -0.5px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .cap-spade {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      background: #0070AD;
+      clip-path: polygon(50% 0%, 100% 70%, 75% 100%, 25% 100%, 0% 70%);
+    }
+
+    .status-pill {
+      background: rgba(0, 230, 118, 0.15);
+      border: 1px solid var(--accent-green);
+      color: var(--accent-green);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .main-headline {
+      font-size: 2.7rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.8px;
+      background: linear-gradient(135deg, #FFFFFF 30%, var(--cap-cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 10px;
+    }
+
+    .sub-headline {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      max-width: 950px;
+      margin-bottom: 20px;
+    }
+
+    .tag-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #E2E8F0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .chip.cyan { border-color: rgba(0, 229, 255, 0.5); color: var(--cap-cyan); }
+    .chip.gold { border-color: rgba(255, 179, 0, 0.5); color: var(--accent-gold); }
+    .chip.purple { border-color: rgba(157, 78, 221, 0.5); color: #C77DFF; }
+
+    /* Key Stats Ribbon */
+    .stats-ribbon {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card:hover {
+      border-color: var(--cap-cyan);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 229, 255, 0.15);
+    }
+
+    .stat-val {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--cap-cyan);
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 4px;
+    }
+
+    .stat-val.gold { color: var(--accent-gold); }
+    .stat-val.green { color: var(--accent-green); }
+    .stat-val.purple { color: #C77DFF; }
+
+    .stat-lbl {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .stat-sub {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      margin-top: 4px;
+    }
+
+    /* Main Poster Layout: 2 Columns */
+    .poster-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-card);
+      position: relative;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      color: #FFFFFF;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 10px;
+    }
+
+    .card-title .icon {
+      font-size: 1.3rem;
+    }
+
+    /* Left Column: Use Cases */
+    .use-case-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .use-case-item {
+      background: rgba(13, 22, 44, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-left: 4px solid var(--cap-cyan);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      transition: all 0.25s ease;
+    }
+
+    .use-case-item:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--cap-cyan);
+      transform: translateX(4px);
+    }
+
+    .use-case-item.case-2 { border-left-color: var(--accent-gold); }
+    .use-case-item.case-3 { border-left-color: var(--accent-green); }
+    .use-case-item.case-4 { border-left-color: #C77DFF; }
+    .use-case-item.case-5 { border-left-color: #FF5252; }
+
+    .use-case-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+
+    .use-case-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .use-case-tag {
+      font-size: 0.72rem;
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2px 8px;
+      border-radius: 4px;
+      color: var(--cap-cyan);
+    }
+
+    .use-case-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .tech-pill-list {
+      display: flex;
+      gap: 6px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tech-mini-pill {
+      font-size: 0.7rem;
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(0, 112, 173, 0.2);
+      border: 1px solid rgba(0, 112, 173, 0.4);
+      color: #93C5FD;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    /* Right Column: Visual Poster Asset & Architecture Flow */
+    .poster-asset-wrapper {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-glow);
+      box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
+      margin-bottom: 20px;
+      background: #000;
+    }
+
+    .poster-img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .poster-asset-wrapper:hover .poster-img {
+      transform: scale(1.03);
+    }
+
+    .asset-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px;
+      background: linear-gradient(to top, rgba(6, 11, 24, 0.95), transparent);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .asset-caption {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .asset-subcaption {
+      font-size: 0.72rem;
+      color: var(--cap-cyan);
+    }
+
+    /* Architecture Flow Box */
+    .arch-flow-diagram {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .flow-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .flow-node {
+      background: rgba(13, 22, 44, 0.8);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      text-align: center;
+      position: relative;
+    }
+
+    .flow-node.active {
+      border-color: var(--cap-cyan);
+      box-shadow: 0 0 12px rgba(0, 229, 255, 0.2);
+    }
+
+    .flow-node.special {
+      border-color: var(--accent-gold);
+    }
+
+    .flow-node-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 2px;
+    }
+
+    .flow-node-sub {
+      font-size: 0.68rem;
+      color: var(--text-dim);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .flow-arrow {
+      text-align: center;
+      color: var(--cap-cyan);
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    /* 3-Role Matrix */
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .role-box {
+      background: rgba(13, 22, 44, 0.6);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      border-top: 3px solid #00E5FF;
+    }
+
+    .role-box.staff { border-top-color: var(--accent-gold); }
+    .role-box.admin { border-top-color: #C77DFF; }
+
+    .role-header {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .role-features {
+      list-style: none;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .role-features li {
+      position: relative;
+      padding-left: 14px;
+    }
+
+    .role-features li::before {
+      content: "•";
+      color: var(--cap-cyan);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    /* Multi-Model Banner */
+    .models-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(13, 22, 44, 0.9);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 14px 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .models-title {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .models-list {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .model-badge {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 0.78rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: #E2E8F0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .model-badge .dot-green {
+      width: 6px;
+      height: 6px;
+      background: var(--accent-green);
+      border-radius: 50%;
+    }
+
+    /* Technology Stack Table / Grid */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .tech-tile {
+      background: rgba(13, 22, 44, 0.7);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      text-align: center;
+    }
+
+    .tech-tile-layer {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--cap-cyan);
+      margin-bottom: 4px;
+    }
+
+    .tech-tile-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .tech-tile-desc {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      margin-top: 2px;
+    }
+
+    /* Footer */
+    .poster-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Modal for Fullscreen Image */
+    .img-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.92);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .img-modal.open {
+      display: flex;
+    }
+
+    .modal-content {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 12px;
+      border: 2px solid var(--cap-cyan);
+      box-shadow: 0 0 40px rgba(0, 229, 255, 0.5);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 24px;
+      right: 28px;
+      background: none;
+      border: none;
+      color: #FFFFFF;
+      font-size: 2rem;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    /* Print Stylesheet for A3 / A4 Exhibition Posters */
+    @media print {
+      body {
+        background: #FFFFFF !important;
+        color: #0F172A !important;
+        padding: 0 !important;
+        background-image: none !important;
+      }
+
+      .action-bar {
+        display: none !important;
+      }
+
+      .header-banner {
+        background: #001E3C !important;
+        color: #FFFFFF !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        border: 2px solid #0070AD !important;
+        box-shadow: none !important;
+      }
+
+      .main-headline {
+        background: none !important;
+        -webkit-text-fill-color: #FFFFFF !important;
+        color: #FFFFFF !important;
+      }
+
+      .card, .stat-card, .use-case-item, .tech-tile, .role-box, .models-bar {
+        background: #FFFFFF !important;
+        border: 1px solid #CBD5E1 !important;
+        color: #0F172A !important;
+        box-shadow: none !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .use-case-name, .card-title, .role-header, .tech-tile-name, .models-title {
+        color: #0F172A !important;
+      }
+
+      .use-case-item {
+        border-left-width: 4px !important;
+      }
+
+      .use-case-desc, .role-features, .tech-tile-desc, .stat-lbl, .sub-headline {
+        color: #475569 !important;
+      }
+
+      .poster-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+
+      .poster-img {
+        height: 320px !important;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .poster-grid {
+        grid-template-columns: 1fr;
+      }
+      .stats-ribbon {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .role-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Action Bar -->
+  <div class="action-bar">
+    <div class="brand-badge">
+      <span class="dot"></span>
+      <span>CAPGEMINI APEX COMMERCIAL BANK &bull; RAG PLATFORM</span>
+    </div>
+    <div class="btn-group">
+      <button class="btn" id="themeBtn" onclick="toggleTheme()">☀️ Light Mode</button>
+      <button class="btn" onclick="openGraphicModal()">🔍 View Poster Art</button>
+      <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Export PDF</button>
+    </div>
+  </div>
+
+  <div class="poster-container">
+
+    <!-- Header Banner -->
+    <header class="header-banner">
+      <div class="header-top">
+        <div class="corp-title-area">
+          <div class="cap-logo-badge">
+            <span class="cap-spade"></span> Capgemini
+          </div>
+          <span style="font-weight: 700; letter-spacing: 1px; color: var(--cap-cyan); font-size: 0.9rem;">
+            APEX COMMERCIAL BANK AI LABS
+          </span>
+        </div>
+        <div class="status-pill">
+          ✓ Production Grade Architecture &bull; V1.0.0
+        </div>
+      </div>
+
+      <h1 class="main-headline">Enterprise AI Banking & RAG Platform</h1>
+      <p class="sub-headline">
+        An enterprise-grade, high-security multi-role financial ecosystem fusing <strong>Microsoft SQL Server 2022</strong>, 
+        <strong>FastAPI</strong>, <strong>Angular 21</strong>, and the <strong>Capgemini Generative Engine</strong> to deliver 
+        hallucination-free document intelligence, zero-leakage natural language Text-to-SQL, and ultra-low-latency query caching.
+      </p>
+
+      <div class="tag-chips">
+        <span class="chip cyan">⚡ Multi-Format Ingestion (PDF / JSON / TXT)</span>
+        <span class="chip">🔒 Strict 3-Role RBAC (Customer &bull; Staff &bull; Admin)</span>
+        <span class="chip gold">🛡️ User-Scoped Text-to-SQL with PII Masking</span>
+        <span class="chip purple">🧠 Multi-Model LLM Gateway (GPT-5, GPT-4o, Claude 3.5, Grok-4)</span>
+        <span class="chip">🚀 Sub-5ms Query Cache</span>
+      </div>
+    </header>
+
+    <!-- Key Numerical Highlights Ribbon -->
+    <section class="stats-ribbon">
+      <div class="stat-card">
+        <div class="stat-val">&sim;5 ms</div>
+        <div class="stat-lbl">Cached Query Latency</div>
+        <div class="stat-sub">0 Token Cost via SHA-256 Cache</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val gold">1536-D</div>
+        <div class="stat-lbl">Vector Dimension</div>
+        <div class="stat-sub">text-embedding-3-small Cosine Match</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val green">100%</div>
+        <div class="stat-lbl">PII Masked & Isolated</div>
+        <div class="stat-sub">AC*******1023 &bull; 4111********1234</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-val purple">13 Tables</div>
+        <div class="stat-lbl">MS SQL Relational Core</div>
+        <div class="stat-sub">ACID Compliant + Audit Logging</div>
+      </div>
+    </section>
+
+    <!-- Main Content Grid -->
+    <main class="poster-grid">
+
+      <!-- Left Column: The 5 Core Use Cases -->
+      <section class="card">
+        <h2 class="card-title">
+          <span class="icon">🏛️</span> 5 Core System Use Cases & Architectural Solutions
+        </h2>
+
+        <div class="use-case-list">
+          
+          <!-- Use Case 1 -->
+          <div class="use-case-item">
+            <div class="use-case-header">
+              <span class="use-case-name">1. Foundation & Multi-Format Vector Retrieval</span>
+              <span class="use-case-tag">DATA FOUNDATION</span>
+            </div>
+            <p class="use-case-desc">
+              Automated ingestion pipeline supporting <strong>PDF</strong>, structured <strong>JSON</strong>, and <strong>TXT</strong>. 
+              Splits text at <strong>800-token boundaries</strong> with <strong>120-token window overlap</strong> (`cl100k_base` BPE). 
+              Generates 1536-dimensional embeddings indexed inside Microsoft SQL Server for exact cosine similarity lookup.
+            </p>
+            <div class="tech-pill-list">
+              <span class="tech-mini-pill">pypdf</span>
+              <span class="tech-mini-pill">tiktoken (cl100k_base)</span>
+              <span class="tech-mini-pill">text-embedding-3-small</span>
+              <span class="tech-mini-pill">MS SQL Vector Store</span>
+            </div>
+          </div>
+
+          <!-- Use Case 2 -->
+          <div class="use-case-item case-2">
+            <div class="use-case-header">
+              <span class="use-case-name">2. End-to-End RAG Banking Assistant with Citations</span>
+              <span class="use-case-tag">ZERO HALLUCINATION</span>
+            </div>
+            <p class="use-case-desc">
+              Real-time policy assistant answering compliance, loan guidelines, and deposit penalty inquiries. 
+              Enforces strict system prompts to eliminate hallucinations and attaches a <strong>Source Citations Engine</strong> 
+              linking every response back to exact filename, document title, chunk index, and cosine relevance score.
+            </p>
+            <div class="tech-pill-list">
+              <span class="tech-mini-pill">Top-K Retrieval</span>
+              <span class="tech-mini-pill">Strict System Prompting</span>
+              <span class="tech-mini-pill">Source Citations Engine</span>
+            </div>
+          </div>
+
+          <!-- Use Case 3 -->
+          <div class="use-case-item case-3">
+            <div class="use-case-header">
+              <span class="use-case-name">3. Secure Banking Data Integration (Text-to-SQL)</span>
+              <span class="use-case-tag">SECURITY FIRST</span>
+            </div>
+            <p class="use-case-desc">
+              Customers query balances, credit cards, loan repayment schedules, and transaction ledgers in natural language. 
+              Enforces absolute security: strictly constrained by <code>WHERE user_id = :current_user_id</code>, parameterized read-only execution, 
+              and automated PII redaction (<code>AC*******1023</code>, <code>4111********1234</code>).
+            </p>
+            <div class="tech-pill-list">
+              <span class="tech-mini-pill">User-Scoped SQL</span>
+              <span class="tech-mini-pill">Anti-Injection Scanner</span>
+              <span class="tech-mini-pill">Automated PII Masking</span>
+            </div>
+          </div>
+
+          <!-- Use Case 4 -->
+          <div class="use-case-item case-4">
+            <div class="use-case-header">
+              <span class="use-case-name">4. Intelligence Maturity & Query Caching</span>
+              <span class="use-case-tag">5MS OPTIMIZATION</span>
+            </div>
+            <p class="use-case-desc">
+              High-efficiency <strong>Conversational Query Caching</strong> using normalized SHA-256 hashes stored in MS SQL. 
+              Frequent and identical policy questions resolve in <strong>~5ms with 0 token consumption</strong>. 
+              Full computational telemetry (<code>/metrics</code>) tracks latency, token burn, and cache hit ratios.
+            </p>
+            <div class="tech-pill-list">
+              <span class="tech-mini-pill">SHA-256 Query Hashing</span>
+              <span class="tech-mini-pill">Zero Token Cost</span>
+              <span class="tech-mini-pill">Real-time /metrics Telemetry</span>
+            </div>
+          </div>
+
+          <!-- Use Case 5 -->
+          <div class="use-case-item case-5">
+            <div class="use-case-header">
+              <span class="use-case-name">5. Unified Integration & Smart Intent Classifier</span>
+              <span class="use-case-tag">GATEWAY INTELLIGENCE</span>
+            </div>
+            <p class="use-case-desc">
+              Centralized API gateway router that parses natural language intent dynamically into 
+              <code>POLICY_DOC</code> (Vector RAG), <code>USER_SQL</code> (Personal Database), or <code>REFUSE_OOS</code> (Out-of-Scope Security Refusal), 
+              delivering a unified single-portal experience across all roles.
+            </p>
+            <div class="tech-pill-list">
+              <span class="tech-mini-pill">Intent Classifier</span>
+              <span class="tech-mini-pill">RBAC Token Validator</span>
+              <span class="tech-mini-pill">Dynamic Route Dispatch</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Right Column: Visual Poster & Architecture -->
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+
+        <!-- Poster Graphic Asset Card -->
+        <div class="card" style="padding: 16px;">
+          <div class="poster-asset-wrapper" onclick="openGraphicModal()" style="cursor: pointer;" title="Click to expand high-res artwork">
+            <img src="poster_graphic.jpg" alt="Capgemini Apex Commercial Bank AI Platform Poster Visual" class="poster-img">
+            <div class="asset-overlay">
+              <div>
+                <div class="asset-caption">Capgemini Apex Commercial Bank AI Architecture</div>
+                <div class="asset-subcaption">Click to view 4K concept visual</div>
+              </div>
+              <span class="btn" style="padding: 4px 10px; font-size: 0.75rem;">Expand ⛶</span>
+            </div>
+          </div>
+
+          <!-- Multi-Model Gateway Banner -->
+          <div class="models-bar">
+            <div class="models-title">
+              <span>🤖 Multi-Model LLM Gateway:</span>
+            </div>
+            <div class="models-list">
+              <span class="model-badge"><span class="dot-green"></span> openai.gpt-5</span>
+              <span class="model-badge"><span class="dot-green"></span> openai.gpt-4o</span>
+              <span class="model-badge"><span class="dot-green"></span> claude-opus-4-6</span>
+              <span class="model-badge"><span class="dot-green"></span> grok-4</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- End-to-End Pipeline Diagram Card -->
+        <section class="card">
+          <h2 class="card-title">
+            <span class="icon">🔄</span> End-to-End Request & Intelligence Flow
+          </h2>
+
+          <div class="arch-flow-diagram">
+            <div class="flow-row">
+              <div class="flow-node">
+                <div class="flow-node-title">Angular 21 Client</div>
+                <div class="flow-node-sub">Port 4200 &bull; Signals</div>
+              </div>
+              <div class="flow-node active">
+                <div class="flow-node-title">FastAPI Gateway</div>
+                <div class="flow-node-sub">JWT &bull; RBAC Guard</div>
+              </div>
+              <div class="flow-node">
+                <div class="flow-node-title">Guardrails & PII</div>
+                <div class="flow-node-sub">Masking Engine</div>
+              </div>
+            </div>
+
+            <div class="flow-arrow">▼ &nbsp; SMART ROUTING &nbsp; ▼</div>
+
+            <div class="flow-row">
+              <div class="flow-node special">
+                <div class="flow-node-title">Vector RAG</div>
+                <div class="flow-node-sub">Top-K Cosine Match</div>
+              </div>
+              <div class="flow-node active">
+                <div class="flow-node-title">Query Cache</div>
+                <div class="flow-node-sub">~5ms &bull; 0 Tokens</div>
+              </div>
+              <div class="flow-node special">
+                <div class="flow-node-title">Text-to-SQL</div>
+                <div class="flow-node-sub">user_id Scoped Query</div>
+              </div>
+            </div>
+
+            <div class="flow-arrow">▼ &nbsp; PERSISTENCE & LLM &nbsp; ▼</div>
+
+            <div class="flow-row">
+              <div class="flow-node">
+                <div class="flow-node-title">Capgemini GenEngine</div>
+                <div class="flow-node-sub">US Hosted Gateway</div>
+              </div>
+              <div class="flow-node active">
+                <div class="flow-node-title">MS SQL Server 2022</div>
+                <div class="flow-node-sub">13 Relational Tables</div>
+              </div>
+              <div class="flow-node">
+                <div class="flow-node-title">Citations Engine</div>
+                <div class="flow-node-sub">Doc / Page / Score</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- 3-Role Access Matrix -->
+    <section class="card">
+      <h2 class="card-title">
+        <span class="icon">👥</span> Enterprise 3-Role Governance & Segregation of Duties
+      </h2>
+      <div class="role-grid">
+        <div class="role-box">
+          <div class="role-header" style="color: var(--cap-cyan);">
+            <span>👤</span> CUSTOMER (Retail Banking)
+          </div>
+          <ul class="role-features">
+            <li>Self-registration assigns <code>CUSTOMER</code> & <code>KYC_PENDING</code></li>
+            <li>Interactive Dashboard: Balances, credit limits, loans & ledger</li>
+            <li>Document verification upload (PAN, Aadhaar, Passport)</li>
+            <li>Natural language AI assistant for policy & scoped account insights</li>
+            <li>Strict <code>403 Forbidden</code> block against staff queues & admin APIs</li>
+          </ul>
+        </div>
+
+        <div class="role-box staff">
+          <div class="role-header" style="color: var(--accent-gold);">
+            <span>💼</span> EMPLOYEE (Bank Staff Operations)
+          </div>
+          <ul class="role-features">
+            <li>Exclusively provisioned by Admin (zero public registration)</li>
+            <li>Pending KYC Workspace: Audits identity documents</li>
+            <li>Core Account Activation: Issues unique 10-digit account code</li>
+            <li>Initial credit provisioning & Platinum Rewards card issuance</li>
+            <li>Customer ticket review & strict administrative isolation</li>
+          </ul>
+        </div>
+
+        <div class="role-box admin">
+          <div class="role-header" style="color: #C77DFF;">
+            <span>⚙️</span> ADMIN (System Super-User)
+          </div>
+          <ul class="role-features">
+            <li>Auto-seeded root account (<code>admin@capgemini-bank.com</code>)</li>
+            <li>Employee provisioning & organizational credential management</li>
+            <li>Multi-format knowledge ingestion pipeline (PDF, JSON, TXT)</li>
+            <li>Telemetry dashboard: Latency benchmarks, token usage, hit ratio</li>
+            <li>Compliance audit logs inspection with immutable event tracking</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology Stack Grid -->
+    <section class="card">
+      <h2 class="card-title">
+        <span class="icon">🛠️</span> Core Technology Stack Specifications
+      </h2>
+      <div class="tech-grid">
+        <div class="tech-tile">
+          <div class="tech-tile-layer">Backend Layer</div>
+          <div class="tech-tile-name">FastAPI &bull; Python 3.12</div>
+          <div class="tech-tile-desc">Asynchronous ASGI, Pydantic v2, SQLAlchemy 2.0</div>
+        </div>
+        <div class="tech-tile">
+          <div class="tech-tile-layer">Database Engine</div>
+          <div class="tech-tile-name">MS SQL Server 2022</div>
+          <div class="tech-tile-desc">ODBC Driver 18, 13 Relational Tables, pyodbc pool</div>
+        </div>
+        <div class="tech-tile">
+          <div class="tech-tile-layer">Frontend Framework</div>
+          <div class="tech-tile-name">Angular 21</div>
+          <div class="tech-tile-desc">Standalone Components, Reactive Signals, TypeScript</div>
+        </div>
+        <div class="tech-tile">
+          <div class="tech-tile-layer">AI Platform</div>
+          <div class="tech-tile-name">Capgemini GenEngine</div>
+          <div class="tech-tile-desc">GPT-5, GPT-4o, Claude Opus, Grok-4, text-embedding-3</div>
+        </div>
+        <div class="tech-tile">
+          <div class="tech-tile-layer">Enterprise Security</div>
+          <div class="tech-tile-name">JWT &bull; BCrypt &bull; PII</div>
+          <div class="tech-tile-desc">24h Tokens, Salted Hashing, Account & Card Redaction</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="poster-footer">
+      <div class="footer-left">
+        <strong>Capgemini Engineering & Financial Services AI Practice</strong>
+        <span>&bull;</span>
+        <span>Confidential &amp; Proprietary</span>
+        <span>&bull;</span>
+        <span>BankingAppRAG Platform</span>
+      </div>
+      <div>
+        <span>Design &amp; Implementation: L2 Capgemini Engineering Team</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Fullscreen Image Modal -->
+  <div class="img-modal" id="graphicModal" onclick="closeGraphicModal()">
+    <button class="modal-close" onclick="closeGraphicModal()">&times;</button>
+    <img src="poster_graphic.jpg" alt="Enlarged Poster Graphic" class="modal-content" onclick="event.stopPropagation()">
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const btn = document.getElementById('themeBtn');
+      if (body.getAttribute('data-theme') === 'light') {
+        body.removeAttribute('data-theme');
+        btn.innerHTML = '☀️ Light Mode';
+      } else {
+        body.setAttribute('data-theme', 'light');
+        btn.innerHTML = '🌙 Dark Mode';
+      }
+    }
+
+    function openGraphicModal() {
+      document.getElementById('graphicModal').classList.add('open');
+    }
+
+    function closeGraphicModal() {
+      document.getElementById('graphicModal').classList.remove('open');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeGraphicModal();
+    });
+  </script>
+</body>
+</html>

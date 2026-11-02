@@ -1,0 +1,62 @@
+{
+  "bank_name": "Capgemini Apex Commercial Bank",
+  "effective_date": "2026-01-01",
+  "savings_accounts": [
+    {
+      "tier": "Basic Savings",
+      "minimum_balance": 1000.0,
+      "annual_percentage_yield": "3.50%",
+      "interest_payout_frequency": "Quarterly",
+      "features": ["Free debit card", "Zero penalty on first 3 ATM withdrawals per month"]
+    },
+    {
+      "tier": "Premium Gold Savings",
+      "minimum_balance": 25000.0,
+      "annual_percentage_yield": "5.25%",
+      "interest_payout_frequency": "Monthly",
+      "features": ["Dedicated relationship manager", "Zero international markup", "Unlimited free ATM withdrawals"]
+    }
+  ],
+  "fixed_deposits": [
+    {
+      "tenure": "1 Year",
+      "standard_rate": "6.75%",
+      "senior_citizen_rate": "7.25%",
+      "premature_withdrawal_penalty": "0.50%"
+    },
+    {
+      "tenure": "3 Years",
+      "standard_rate": "7.10%",
+      "senior_citizen_rate": "7.60%",
+      "premature_withdrawal_penalty": "1.00%"
+    },
+    {
+      "tenure": "5 Years Tax Saver",
+      "standard_rate": "7.50%",
+      "senior_citizen_rate": "8.00%",
+      "lock_in_period": "5 Years mandatory"
+    }
+  ],
+  "lending_rates": [
+    {
+      "category": "Home Loan",
+      "base_interest_rate": "8.40%",
+      "floating_spread": "0.25%",
+      "processing_fee": "0.35% of sanctioned loan value capped at 10,000 INR",
+      "maximum_tenure_years": 30
+    },
+    {
+      "category": "Personal Loan",
+      "base_interest_rate": "10.50%",
+      "floating_spread": "None (Fixed Rate)",
+      "processing_fee": "1.50%",
+      "maximum_tenure_years": 5
+    },
+    {
+      "category": "Auto Loan",
+      "base_interest_rate": "8.75%",
+      "processing_fee": "0.50%",
+      "maximum_tenure_years": 7
+    }
+  ]
+}

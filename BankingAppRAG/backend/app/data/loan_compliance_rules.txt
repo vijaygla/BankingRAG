@@ -1,0 +1,25 @@
+CAPGEMINI APEX COMMERCIAL BANK - CREDIT AND LOAN COMPLIANCE RULEBOOK
+Document Reference: DOC-COMP-2026-v4
+Effective Date: January 1, 2026
+Classification: Public Banking Customer Guidelines
+
+1. GENERAL ELIGIBILITY CRITERIA FOR RETAIL BORROWERS
+Any borrower seeking credit facilities must satisfy the following minimum baseline prerequisites:
+- Minimum age requirement: 21 years at the time of loan application submission.
+- Maximum age at maturity: 65 years for salaried applicants and 70 years for self-employed professionals.
+- Minimum credit rating requirement: CIBIL Score or equivalent credit bureau rating of 720 or higher.
+- Minimum verifiable net monthly income: 25,000 INR for Tier 2 cities and 35,000 INR for Tier 1 metropolitan areas.
+- Employment stability: At least 1 continuous year in current organization or 2 total years of uninterrupted corporate employment.
+
+2. LOAN-TO-VALUE (LTV) RATIOS AND BORROWING CEILINGS
+- Home Loans up to 30 Lakhs INR: Permissible LTV is up to 90% of registered property valuation.
+- Home Loans between 30 Lakhs and 75 Lakhs INR: Permissible LTV capped strictly at 80%.
+- Home Loans exceeding 75 Lakhs INR: Permissible LTV restricted to 75%.
+- Vehicle Loans: Up to 85% of on-road purchase invoice for new vehicles and 60% of certified book valuation for pre-owned vehicles.
+- Personal Unsecured Loans: Maximum ticket limit of 15,00,000 INR, subject to a debt-to-income ratio (DTI) not exceeding 45%.
+
+3. FORECLOSURE, PREPAYMENT AND COLLATERAL POLICIES
+- Floating rate home loans granted to individual retail borrowers shall carry zero foreclosure or prepayment penalty.
+- Fixed rate personal loans are subject to a lock-in period of 6 months. Prepayment post lock-in carries a 2.0% fee on outstanding principal balance.
+- Mandatory collateral verification: Clear, unencumbered property title deed verified by bank-empanelled legal advocates.
+- Default resolution: Grace period of 15 calendar days post EMI due date, after which a penal charge of 24% per annum compounded monthly applies on overdue amount.
